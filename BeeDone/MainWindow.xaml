@@ -186,6 +186,7 @@
 
         <!--  Suppression d'une tâche : déplacée pour la démo  -->
         <Button
+            x:Name="btnSuppression"
             Grid.Row="3"
             Grid.Column="0"
             Background="#FFD6D6"

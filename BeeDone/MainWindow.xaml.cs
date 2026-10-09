@@ -59,25 +59,11 @@ namespace BeeDone
 
         private async void btnSupprimerTache_Click(object sender, RoutedEventArgs e)
         {
+            
             if (lvTaches.SelectedItem != null)
             {
-                Tache tacheSelect = (Tache)lvTaches.SelectedItem;
-                // ou 
-                // Tache? tacheSelect = lvTaches.SelectedItem as Tache;
-
-                Taches.Remove(tacheSelect);
-                lvTaches.Items.Remove(tacheSelect);
-            }
-            else
-            {
-                ContentDialog dialog = new ContentDialog()
-                {
-                    Title = "Erreur",
-                    Content = "Veuillez sélectionner une tâche à supprimer.",
-                    CloseButtonText = "OK",
-                    XamlRoot = this.Content.XamlRoot
-                };
-                await dialog.ShowAsync();
+                Tache tache = (Tache)lvTaches.SelectedItem ;
+                Taches.Remove(tache);
             }
         }
 
