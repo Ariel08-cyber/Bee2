@@ -1,3 +1,4 @@
+using BeeDone.Data;
 using BeeDone.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -19,14 +20,21 @@ namespace BeeDone
 
         public MainWindow()
         {
+            _tacheDataProvider = new TacheDataProvider();
             InitializeComponent();
 
-            Taches.Add(new Tache("Faire l'épicerie"));
-            Taches.Add(new Tache("Réviser WinUI"));
+            
 
             lvTaches.ItemsSource = Taches;
         }
 
+        public void ChargerTaches()
+        {
+            foreach(Tache tache in _tacheDataProvider.GetTaches())
+            {
+                Taches.Add(tache);
+            }
+        }
 
         private async void btnAjouterTache_Click(object sender, RoutedEventArgs e)
         {
